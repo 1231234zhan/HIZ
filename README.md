@@ -109,7 +109,7 @@ $ ./hiz input.obj 10
 | 远距离时间 | **120** ms | 170 ms (+41%) | 168 ms (+40%)      |
 | 近距离时间 | **260** ms | 316 ms (+21%) | 308 ms (+18%)      |
 
-# 总结
+## 总结
 
 1. 层次 z-buffer 的消隐效率难以估计，在大多数一般场景下可能没有一般的深度 z-buffer 效果好
    - 在大多数情况下，绝大多数三角面片在屏幕空间很小，直接光栅化代价甚至小于消隐代价
@@ -119,7 +119,7 @@ $ ./hiz input.obj 10
 
 总之，该算法的效率与许多方面相关，但大多时候不会产生优化效果。因此该算法没有在日常的绘制中被广泛使用。
 
-# 参考与引用内容
+## 参考与引用内容
 
 - `global.h` 中错误处理与信息输出的宏定义参考了 [该代码](https://github.com/blurgyy/cg-2020/blob/master/pa1/include/global.hpp)
 - obj 文件读入使用了 [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader)
