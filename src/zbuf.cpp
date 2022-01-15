@@ -114,7 +114,9 @@ flt calc_depth(const vec2& p_test, const Triangle& tri)
     flt D = -(A * p1.x + B * p1.y + C * p1.z);
 
     if (glm::epsilonEqual(C, kZero, kEps)) {
-        ERRORM("Points in a triangle maybe overlap\n");
+        // maybe invisible
+        return INFINITY;
+        // ERRORM("Points in a triangle maybe overlap\n");
     }
 
     flt depth = -(A * p_test.x + B * p_test.y + D) / C;
@@ -185,7 +187,7 @@ void ZBuf::build_pyramid()
             last_map[y_t][x_t] = array_id(x_t, y_t);
         }
     }
-    INFO("Pyramid matrix size at bottom layer: %d x %d  (H x W)\n", now_height, now_width);
+    DEBUGM("Pyramid matrix size at bottom layer: %d x %d  (H x W)\n", now_height, now_width);
 
      while (!(now_height == 1 && now_width == 1)) {
         last_width = now_width;
@@ -199,7 +201,7 @@ void ZBuf::build_pyramid()
             now_map[y_t].resize(now_width);
         }
 
-        INFO("Pyramid matrix size: %d x %d  (H x W)\n", now_height, now_width);
+        DEBUGM("Pyramid matrix size: %d x %d  (H x W)\n", now_height, now_width);
 
         for (int y_t = 0; y_t < now_height; y_t++) {
             for (int x_t = 0; x_t < now_width; x_t++) {
@@ -298,7 +300,7 @@ void ZBuf::build_pyramid()
 
 
 void ZBuf::clear_pyramid(){
-    INFO("Clear pyramid\n");
+    DEBUGM("Clear pyramid\n");
     root = -1;
     // Delete all the node except leaves
     n_array.resize(width * height);

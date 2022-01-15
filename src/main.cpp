@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
     Scene scene(kWidth, kHeight, objreader);
 
-    mat4 Look = glm::lookAt(vec3(-distance, distance, distance), vec3(0, 0, 0), vec3(0, 1, 0));
+    mat4 Look = glm::lookAt(vec3(0, distance, 0), vec3(0, 0, 0), vec3(0, 0, -1));
     mat4 Pers = glm::perspective(glm::radians(60.0f), 1.0f * kWidth / kHeight, 0.1f, 100.0f);
     Camera camera(Look, Pers);
 
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
     timer.start();
     scene.hierarchical_zbuffer();
-    timer.end_and_output("Hierarchical Z-Buffer algorithm elapsed  time: ");
+    timer.end_and_output("Hierarchical Z-Buffer algorithm elapsed time: ");
     scene.buffer.save_file("hie-zbuffer.ppm");
 
     timer.start();

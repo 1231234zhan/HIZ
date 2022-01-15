@@ -3,6 +3,12 @@
 #include <cstdio>
 #include <glm/glm.hpp>
 
+#ifdef DEBUG
+#define IF_DEBUG 1
+#else
+#define IF_DEBUG 0
+#endif
+
 #define ERRORM(fmt, ...)                               \
     do {                                               \
         fprintf(stderr, "Error: " fmt, ##__VA_ARGS__); \
@@ -16,7 +22,7 @@
 
 #define DEBUGM(fmt, ...)                                   \
     do {                                                   \
-        if (false)                                         \
+        if (IF_DEBUG)                                      \
             fprintf(stdout, "Debug: " fmt, ##__VA_ARGS__); \
     } while (false)
 
@@ -33,9 +39,11 @@ typedef glm::ivec4 ivec4;
 typedef glm::ivec3 ivec3;
 typedef glm::ivec2 ivec2;
 
+// Constant picure width and height
 const int kWidth = 1000;
 const int kHeight = 1000;
-const flt kEps = 1e-8;
+
+const flt kEps = 1e-12;
 const flt kZero = 0.0;
 
 template <typename T>

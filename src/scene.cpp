@@ -142,7 +142,7 @@ void Scene::zbuffer()
     for (auto& tri : triangles) {
         buffer.rasterization(tri, tri.color());
     }
-    INFO("End Z-Buffer algorithm\n\n");
+    INFO("End Z-Buffer algorithm\n");
 }
 
 void Scene::hierarchical_zbuffer()

@@ -16,6 +16,7 @@ public:
     inline const vec3& p2() const { return this->p[1]; }
     inline const vec3& p3() const { return this->p[2]; }
     void transform_to_screen(const Camera& camera, const vec4& viewport);
+    
     // Paint an triangle face depending on barycentric coordinates
     Color color();
 };

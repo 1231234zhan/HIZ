@@ -29,9 +29,11 @@ public:
     BBox();
     BBox(const Triangle&);
 
+    // Update bbox's size acccording to input 
     void update(const Triangle&);
     void update(const glm::vec<N, float, glm::defaultp>&);
 
+    // If a box contains another box
     bool is_contain(const BBox<N>&);
 };
 

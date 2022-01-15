@@ -52,7 +52,7 @@ void Timer::end()
 void Timer::output(const std::string& s)
 {
     auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(_end - _now);
-    std::cout << s << " " << ms.count() << "ms" << std::endl;
+    std::cout << s << " " << ms.count() << " ms" << std::endl;
 }
 
 void Timer::end_and_output(const std::string& s)
